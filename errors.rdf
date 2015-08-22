@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+]>
+
+
+<rdf:RDF xmlns="http://purl.org/ceu/errors/"
+     xml:base="http://purl.org/ceu/errors/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://purl.org/ceu/errors/">
+        <rdfs:label xml:lang="en">Errors ontology</rdfs:label>
+        <rdfs:comment xml:lang="en">The Errors ontology, is an ontology for tracking semantic inconsistencies an modelling errors in ontologies.</rdfs:comment>
+        <rdfs:comment xml:lang="es">La ontología Errors es una ontología para registrar inconsistencias semánticas y errores de modelado en ontologías.</rdfs:comment>
+        <owl:versionIRI rdf:resource="http://purl.org/ceu/errors/1.0"/>
+        <dc:creator xml:lang="es">Alfredo Sánchez Alberca (asalber@ceu.es) &lt;http://aprendeconalf.es/foaf.rdf&gt;</dc:creator>
+        <dc:rights xml:lang="en">E-Collections ontology is released under Attribution-ShareAlike 4.0 International Creative Commons license: http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+        <dc:rights xml:lang="es">La ontología E-Collections está bajo una licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional ( http://creativecommons.org/licenses/by-sa/4.0/).</dc:rights>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ceu/errors/hasError -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ceu/errors/hasError">
+        <rdfs:label xml:lang="en">has error</rdfs:label>
+        <rdfs:label xml:lang="es">tiene error</rdfs:label>
+        <rdfs:comment xml:lang="en">Property that relates an entity with an inconsistent definition or a semantic error (which results in it belonging to the class owl:Nothing, therefore making the model inconsistent) to an error.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Propiedad que relaciona una entidad con una definición inconsistente o con un error semántico con un error.</rdfs:comment>
+        <rdfs:range rdf:resource="http://purl.org/ceu/errors/Error"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/ceu/errors/hasError"/>
+                <owl:onClass rdf:resource="http://purl.org/ceu/errors/Error"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ceu/errors/errorDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/ceu/errors/errorDescription">
+        <rdfs:label xml:lang="en">error description</rdfs:label>
+        <rdfs:label xml:lang="es">descripción del error</rdfs:label>
+        <rdfs:comment xml:lang="en">Property that relates an error with a textual description of the error.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Propiedad que relaciona un error con una descripción textual del error.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/ceu/errors/CardinalityError -->
+
+    <owl:Class rdf:about="http://purl.org/ceu/errors/CardinalityError">
+        <rdfs:label xml:lang="en">Cardinality error</rdfs:label>
+        <rdfs:label xml:lang="es">Error de cardinalidad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ceu/errors/CollectionError"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ceu/errors/CollectionError -->
+
+    <owl:Class rdf:about="http://purl.org/ceu/errors/CollectionError">
+        <rdfs:label xml:lang="en">Collection error</rdfs:label>
+        <rdfs:label xml:lang="es">Error de colección</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ceu/errors/Error"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ceu/errors/Error -->
+
+    <owl:Class rdf:about="http://purl.org/ceu/errors/Error">
+        <rdfs:label xml:lang="en">Error</rdfs:label>
+        <rdfs:label xml:lang="es">Error</rdfs:label>
+        <rdfs:comment xml:lang="en">A semantic error in an inconsistent ontology.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Un error semántico en una ontología inconsistente.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ceu/errors/HomogeneityError -->
+
+    <owl:Class rdf:about="http://purl.org/ceu/errors/HomogeneityError">
+        <rdfs:label xml:lang="en">Homogeneity error</rdfs:label>
+        <rdfs:label xml:lang="es">Error de homogeneidad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ceu/errors/CollectionError"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ceu/errors/OrderError -->
+
+    <owl:Class rdf:about="http://purl.org/ceu/errors/OrderError">
+        <rdfs:label xml:lang="en">Order error</rdfs:label>
+        <rdfs:label xml:lang="es">Error de orden</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ceu/errors/CollectionError"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ceu/errors/UniquenessError -->
+
+    <owl:Class rdf:about="http://purl.org/ceu/errors/UniquenessError">
+        <rdfs:label xml:lang="en">Uniqueness error</rdfs:label>
+        <rdfs:label xml:lang="es">Error de unicidad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/ceu/errors/CollectionError"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
